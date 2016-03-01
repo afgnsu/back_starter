@@ -1,0 +1,22 @@
+<h1 class="text-center">Add A New Project</h1>
+<br>
+<div>
+<%= form_for @project, remote: true do |f| %>
+  <div class="col-md-6 col-md-offset-1">
+    <div class="form-group">
+      <%= f.text_field :url, class: "form-control", :placeholder => "Enter the url" %>
+    </div>
+  </div>
+  <div class="col-md-2">
+    <div class="form-group">
+      <%= select_tag "project[category_id]", options_for_select(@categories.map {|category| [category.name, category.id]}), { class: "form-control" } %>
+    </div>
+  </div>
+  <div class="col-md-3">
+    <div class="form-actions">
+      <%= f.submit "Add", class: "btn btn-danger col-md-6", id: "btn-add-submit" %>
+    </div>
+  </div>     
+<% end %>
+</div>
+<div class="text-center" id="add-result"></div>

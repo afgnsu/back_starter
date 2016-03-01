@@ -28,4 +28,9 @@ $(document).ready(function() {
   	        window.location.hash = target;
   	    });
   	});
+  	
+    $("#btn-add-submit").click(function(){
+      $("#add-result").text('Creating...');
+    });  	
+    
 });
