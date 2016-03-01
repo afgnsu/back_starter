@@ -42,7 +42,7 @@ body {
 .panel-body {
   padding: 0 !important;
   background: black;
-  position: relative;
+  position: relative !important;
   img {
     transition: 0.3s;  
   }
@@ -50,7 +50,19 @@ body {
     img {
       opacity: 0.4;  
     }
+    .projects_count {
+      position: absolute;  
+      display: block;
+      color: #FFFFFF;
+    }
   }
+  .projects_count {
+    position: absolute;  
+    left: 0;
+    right: 0;
+    top: 50%;
+    display: none;
+  }  
 }
 
 .panel-default {
@@ -59,4 +71,19 @@ body {
 .categories_image {
   width: 100%;
   height: 200px;
+}
+
+.spacer {
+    width: 200px;
+    height: 2px;
+    margin: auto;
+    background: linear-gradient(-90deg, white, DarkRed);
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.categories-link {
+  &:hover {
+    text-decoration: none;
+  }
 }
