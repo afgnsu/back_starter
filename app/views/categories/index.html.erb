@@ -1,5 +1,19 @@
 <div class="jumbotron text-center">
   <h1>Welcome to BackStarter</h1> 
   <p>We pick the hotest projects for you! Enjoy it!</p> 
+  <%= link_to "View Projects", "#categories", class: "btn btn-lg btn-default", id: "btn-view-project" %>
 </div>
 
+
+<div class="container" id="categories">
+  <h2>Categories</h2>
+  <br>
+  <% @categories.each do |category|%>
+  <div class="col-md-3 col-sm-6">
+    <div class="panel panel-default">
+      <div class="panel-heading text-center"><%= category.name %></div>
+      <div class="panel-body"><%= image_tag "categories/#{category.name }.jpg", class: "categories_image" %></div>
+    </div>    
+  </div>
+  <% end %>
+</div>
