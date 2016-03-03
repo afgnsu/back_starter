@@ -66,6 +66,8 @@ class ProjectsController < ApplicationController
     if user_signed_in?
       @like = @project.like_by_user? current_user
     end
+    @comments = @project.comments.order("created_at DESC")
+    @comment = @project.comments.new
   end
   
   def edit

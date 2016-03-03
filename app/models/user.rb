@@ -1,4 +1,5 @@
 class User < ActiveRecord::Base
+  has_many :comments
   has_many :user_project_relationships
   has_many :projects, through: :user_project_relationships
   # Include default devise modules. Others available are:
