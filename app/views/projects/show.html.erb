@@ -1,0 +1,26 @@
+<br>
+<br>
+<div class="container-fluid project-show">
+  <div class="row">
+    <div class="col-sm-6">
+      <%= image_tag @project.cover, alt: @project.description, class: "project-image" %>
+    </div>
+    <div class="col-sm-6">
+      <h2><strong><%= @project.title %></strong></h2>      
+      <p><%= @project.description %></p>
+    </div>
+  </div>
+  <% if user_signed_in? %>
+    <div class="add-to-favorite">
+      <% if @like %>
+        <%= link_to like_project_path(@project), method: :post, class: "like-link btn btn-default btn-like", remote: true do %>
+          <h4 class="text-center" id="like-content"><span class="glyphicon glyphicon-heart"></span> Already added</h4>
+        <% end %>      
+      <% else %>
+        <%= link_to like_project_path(@project), method: :post, class: "like-link btn btn-default btn-like", remote: true do %>
+          <h4 class="text-center" id="like-content"><span class="glyphicon glyphicon-heart-empty"></span> Add to My Favorite</h4>
+        <% end %>
+      <% end %>
+    </div>  
+  <% end %>
+</div>

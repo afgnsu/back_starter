@@ -1,6 +1,8 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
 @import url(https://fonts.googleapis.com/css?family=Raleway);
-
+.container-body {
+  padding-top: 50px; 
+}
 body {
   font-family: 'Montserrat', 微軟正黑體, sans-serif !important;
 }
@@ -39,7 +41,14 @@ body {
     color: black;
   }
 }
-
+.project-link {
+  text-decoration: none;
+  color: #000;
+  &:hover {
+    text-decoration: none;
+    color: #000;
+  }
+}
 .panel-body {
   padding: 0 !important;
   background: black;
@@ -64,6 +73,12 @@ body {
     top: 50%;
     display: none;
   }  
+  .project-title {
+    padding: 10px;
+  }
+  p {
+    padding: 10px;
+  }
 }
 
 .panel-default {
@@ -94,6 +109,7 @@ body {
 }
 
 .project_image {
+  padding: 0 !important;
 	img {
 	  max-width: 100%;
 	 	max-height: 350px;
@@ -109,57 +125,78 @@ body {
 	border-radius: 7px;
 	text-align: center;
 }
-#link_show {
-  margin-top: 20px;
-	.panel-heading {
-		h2 {
-		  letter-spacing: 1px;
-			text-align: left;
-			margin: 5px;
-		}	 
-	}
-	.link_show_left {
-	  padding-right: 30px !important;
-	}
-	
-	.link_image {
-		img {
-	  	max-width: 100%;
-	  	max-height: 350px;
-			display: block;
-			margin: 0 auto;
-		}
-	}
-	.panel-body {
-		padding: 35px;
-		background-color: #FFF !important;
-		img {
-		  float: left;
-	  	max-width: 100%;
-	  	max-height: 350px;
-			display: block;
-			margin: 0 20px 15px 0;		  
-		}
-		.description {
-			color: #868686;
-			line-height: 1.75;
-			letter-spacing: 1px;
-		}
-	}
-	.panel-footer {
-		p {
-			margin: 0;
-		}
-		.user {
-			padding-top: 8px;
-		}
-	}
-}
 
 #project-aftersave {
-  font-family: 'Railway', 微軟正黑體, sans-serif !important;;
+  font-family: 'Railway', 微軟正黑體, sans-serif !important;
   p {
     letter-spacing: 1px;
   }
   
+}
+
+#projects {
+  font-family: 'Railway', 微軟正黑體, sans-serif !important;
+  .panel-body {
+    background-color: #FFFFFF !important;
+  }
+  .panel-footer {
+    h5 {
+      padding-left: 0px !important;
+      text-align: left;
+    }
+  }
+  .darken {
+    background: black;
+    position: relative;
+    color: #FFFFFF;
+    img {
+      transition: 0.3s;
+    }
+    &:hover {
+      img {
+        opacity: 0.4;  
+      }
+      .user_count_show {
+        display: block;  
+      }
+    }
+    .user_count_show {
+      position: absolute;  
+      left: 0;
+      right: 0;
+      top: 50%;
+      display: none;
+    }    
+  }
+}
+
+.project-image {
+  width: 100%;
+  box-shadow: 10px 10px 5px #CCCCCC;
+}
+
+.project-show {
+  position: relative;
+  p {
+    font-family: 'Railway', 微軟正黑體, sans-serif !important;
+    letter-spacing: 1px;
+    padding-right: 20px;
+  }
+  .add-to-favorite {
+    position: absolute;
+    bottom: 0;
+    left: 75%;
+    a {
+      text-decoration: none;
+      color: #000;
+    }
+  }
+}
+
+.btn-like {
+  width: 250px;
+}
+
+span.glyphicon-heart {
+  color: red;
 }

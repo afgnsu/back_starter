@@ -1,6 +1,14 @@
 class Project < ActiveRecord::Base
-  belongs_to :category, counter_cache: true
+  validates :title, presence: true
+  validates :cover, presence: true
+  validates :description, presence: true
+  validates :category_id, presence: true
+  validates :url, presence: true
 
+  belongs_to :category, counter_cache: true
+  has_many :user_project_relationships
+  has_many :users, through: :user_project_relationships
+  
   def add_project_information
     
     begin
@@ -17,4 +25,8 @@ class Project < ActiveRecord::Base
     end
     
   end  
+  
+  def like_by_user?(user)
+    user.projects.include?(self)
+  end
 end

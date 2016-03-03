@@ -1,12 +1,12 @@
 <div class="container">
-  <h1 class="text-center"><%= @category.name %></h1>
+  <h1 class="text-center"><%= current_user.email %></h1>
   <div class="spacer"></div>
   <br>
-  <% if @category.projects_count == 0 %>
-    <h4 class="text-center">Sorry! Please take a look at other category!</h4>
+  <% if @projects.size == 0 %>
+    <h4 class="text-center">Sorry! You don't have any favorites!</h4>
   <% else %>
     <div id="projects" class="transitions-enabled">
-      <% @category.projects.each do |project| %>
+      <% @projects.each do |project| %>
       <div class="box panel panel-default">
         <%= link_to project, class: "project-link" do %> 
         <div class="panel-heading project_image darken">
@@ -23,16 +23,8 @@
         <% end %>
         <div class="panel-footer">
           <div class="row">
-            <div class="col-md-8 col-sm-8">
-              <h5>Liked <%= time_ago_in_words(project.updated_at) %> ago</h5>
-            </div>
-            <div class="col-md-4 col-sm-4">
+            <div class="col-md-4 col-md-offset-8 col-sm-4 col-sm-offset-4">
               <div class="btn-group pull-right">
-                <% if current_user.admin %>
-                  <%= link_to edit_project_path(project), class: "btn btn-default" do %>
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  <% end %>         
-                <% end %>  
                 <%= link_to project.url, target: "_blank", class: "btn btn-default" do %>
                   <span class="glyphicon glyphicon-link"></span>
                 <% end %>                

@@ -13,7 +13,7 @@
 //= require jquery
 //= require bootstrap-sprockets
 //= require jquery_ujs
-//= require turbolinks
+//= require masonry/jquery.masonry
 //= require_tree .
 $(document).ready(function() {
   	$('a[href^="#"]').on('click',function (e) {
@@ -21,15 +21,15 @@ $(document).ready(function() {
   
   	    var target = this.hash;
   	    var $target = $(target);
-  
   	    $('html, body').stop().animate({
-  	        'scrollTop': $target.offset().top
+  	        'scrollTop': $target.offset().top - 50
   	    }, 1000, 'swing', function () {
-  	        window.location.hash = target;
+  	        window.location.hash = target; // add hash to the URL
   	    });
   	});
   	
     $("#btn-add-submit").click(function(){
+      console.log("xxxxx")
       $("#add-result").text('Creating...');
       $("#project-aftersave").html('');
     });  	

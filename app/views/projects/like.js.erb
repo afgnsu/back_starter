@@ -1,0 +1,7 @@
+<% if @like %>
+  content_to_show = '<span class="glyphicon glyphicon-heart"></span> Already liked</h4>'
+<% else %>
+  content_to_show = '<span class="glyphicon glyphicon-heart-empty"></span> Add to My Favorite</h4>'
+<% end %>
+
+$("#like-content").html(content_to_show).hide().fadeIn(1000);
