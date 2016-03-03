@@ -1,1 +1,43 @@
-<h1 class="text-center"><%= @category.name %></h1>
+
+<div class="container">
+  <h1 class="text-center"><%= @category.name %></h1>
+  <div class="spacer"></div>
+  <br>
+  <br>
+  <% if @category.projects_count == 0 %>
+    <h4 class="text-center">Sorry! Please take a look at other category!</h4>
+  <% else %>
+    <div id="links" class="transitions-enabled">
+      <% @category.projects.each do |project| %>
+      <div class="box panel panel-default">
+        <div class="panel-heading project_image darken">
+          <%= link_to do %> 
+            <%= image_tag project.cover, alt: project.description %>
+          <% end %>
+        </div>
+        <div class="panel-body">
+          <h2 class="link-title"><%= project.title %></h2>
+          <p><%= truncate(project.description, length: 70) %></p>
+        </div>
+        <div class="panel-footer">
+          <div class="row">
+            <div class="col-md-8">
+              <h5><%= time_ago_in_words(project.created_at) %> ago</h5>
+            </div>
+            <div class="col-md-4">
+              <div class="btn-group pull-right">
+                <%= link_to project, class: "btn btn-default" do %>
+                  <span class="glyphicon glyphicon-zoom-in"></span>
+                <% end %>                
+                <%= link_to project.url, target: "_blank", class: "btn btn-default" do %>
+                  <span class="glyphicon glyphicon-play"></span>
+                <% end %>                
+              </div> 
+            </div>
+          </div>
+        </div>
+      </div>
+      <% end %> 
+    </div>
+  <% end %>
+</div>

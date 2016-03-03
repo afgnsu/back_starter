@@ -5,9 +5,14 @@ class ProjectsController < ApplicationController
   end
   
   def create
+    
+    if Project.exists?(url: params[:project][:url])
+      @message = "Already existed" 
+      return
+    end
+    
     @project = Project.new(link_params)
-    result = @project.add_project_information
-    if result
+    if @project.add_project_information
       @project.save
       @message = "Successfully added"
     else
@@ -17,6 +22,7 @@ class ProjectsController < ApplicationController
     respond_to do |format|
       format.js
     end
+    
   end
   
   private

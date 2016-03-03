@@ -1,4 +1,5 @@
 @import url(https://fonts.googleapis.com/css?family=Montserrat:400,700);
+@import url(https://fonts.googleapis.com/css?family=Raleway);
 
 body {
   font-family: 'Montserrat', 微軟正黑體, sans-serif !important;
@@ -90,4 +91,75 @@ body {
 
 #add-result {
   margin-top: 50px;
+}
+
+.project_image {
+	img {
+	  max-width: 100%;
+	 	max-height: 350px;
+		display: block;
+		margin: 0 auto;
+	}
+}
+
+.box {
+	margin: 10px;
+	width: 350px;
+  box-shadow: 0 10px 20px 0 rgba(0, 0, 0, 0.22);
+	border-radius: 7px;
+	text-align: center;
+}
+#link_show {
+  margin-top: 20px;
+	.panel-heading {
+		h2 {
+		  letter-spacing: 1px;
+			text-align: left;
+			margin: 5px;
+		}	 
+	}
+	.link_show_left {
+	  padding-right: 30px !important;
+	}
+	
+	.link_image {
+		img {
+	  	max-width: 100%;
+	  	max-height: 350px;
+			display: block;
+			margin: 0 auto;
+		}
+	}
+	.panel-body {
+		padding: 35px;
+		background-color: #FFF !important;
+		img {
+		  float: left;
+	  	max-width: 100%;
+	  	max-height: 350px;
+			display: block;
+			margin: 0 20px 15px 0;		  
+		}
+		.description {
+			color: #868686;
+			line-height: 1.75;
+			letter-spacing: 1px;
+		}
+	}
+	.panel-footer {
+		p {
+			margin: 0;
+		}
+		.user {
+			padding-top: 8px;
+		}
+	}
+}
+
+#project-aftersave {
+  font-family: 'Railway', 微軟正黑體, sans-serif !important;;
+  p {
+    letter-spacing: 1px;
+  }
+  
 }

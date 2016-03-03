@@ -31,6 +31,7 @@ $(document).ready(function() {
   	
     $("#btn-add-submit").click(function(){
       $("#add-result").text('Creating...');
+      $("#project-aftersave").html('');
     });  	
     
 });
