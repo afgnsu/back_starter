@@ -28,7 +28,7 @@
   <br>
   <div>
     <%= link_to "#commentModal", class: "btn btn-default", :"data-toggle" => "modal" do %>
-      <h4 class="text-center">Comments</h4>
+      <h4 class="text-center">Comments <span id="comment-count">(<%= @comments.size %>)</span></h4>
     <% end %>     
   </div>
 </div>
@@ -49,7 +49,7 @@
           <% if @comments.size > 0 %>
             <% @comments.each do |comment| %>
               <li class="list-group-item">
-                <p><strong><%= comment.content %></strong><br><br>
+                <p><strong><%= simple_format(comment.content) %></strong><br><br>
                 (<%= time_ago_in_words(comment.created_at) %>)</p>
               </li>          
             <% end %>

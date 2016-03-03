@@ -2,8 +2,11 @@ class CommentsController < ApplicationController
   before_action :authenticate_user!
   
   def create
-    project = Project.find_by(params[:project_id])
-    @comment = project.comments.create(comment_params)
+    project = Project.find_by(id: params[:project_id])
+    @comment = Comment.new(comment_params)
+    @comment.project = project
+    @comment.save
+    @new_counts = project.comments.count
     
     respond_to do |format|
       format.js
