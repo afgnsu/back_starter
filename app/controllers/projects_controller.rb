@@ -63,7 +63,9 @@ class ProjectsController < ApplicationController
   end
   
   def show
-    @like = @project.like_by_user? current_user
+    if user_signed_in?
+      @like = @project.like_by_user? current_user
+    end
   end
   
   def edit

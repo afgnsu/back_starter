@@ -28,11 +28,13 @@
             </div>
             <div class="col-md-4 col-sm-4">
               <div class="btn-group pull-right">
-                <% if current_user.admin %>
-                  <%= link_to edit_project_path(project), class: "btn btn-default" do %>
-                    <span class="glyphicon glyphicon-pencil"></span>
-                  <% end %>         
-                <% end %>  
+                <% if user_signed_in? %>
+                  <% if current_user.admin %>
+                    <%= link_to edit_project_path(project), class: "btn btn-default" do %>
+                      <span class="glyphicon glyphicon-pencil"></span>
+                    <% end %>         
+                  <% end %>  
+                <% end %>
                 <%= link_to project.url, target: "_blank", class: "btn btn-default" do %>
                   <span class="glyphicon glyphicon-link"></span>
                 <% end %>                
