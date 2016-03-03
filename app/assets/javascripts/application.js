@@ -29,9 +29,9 @@ $(document).ready(function() {
   	});
   	
     $("#btn-add-submit").click(function(){
-      console.log("xxxxx")
       $("#add-result").text('Creating...');
       $("#project-aftersave").html('');
     });  	
+
     
 });

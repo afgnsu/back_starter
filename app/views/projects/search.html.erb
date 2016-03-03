@@ -1,9 +1,9 @@
 <div class="container">
-  <h1 class="text-center"><%= current_user.name %>'s Favorites!</h1>
+  <h1 class="text-center">The result of "<%= @search_content %>"</h1>
   <div class="spacer"></div>
   <br>
   <% if @projects.size == 0 %>
-    <h4 class="text-center">Sorry! You don't have any favorites!</h4>
+    <h4 class="text-center">Sorry! We cannot find any projects!</h4>
   <% else %>
     <div id="projects" class="transitions-enabled">
       <% @projects.each do |project| %>

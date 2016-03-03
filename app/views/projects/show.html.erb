@@ -3,7 +3,9 @@
 <div class="container-fluid project-show">
   <div class="row">
     <div class="col-sm-6">
-      <%= image_tag @project.cover, alt: @project.description, class: "project-image" %>
+      <%= link_to @project.url, target: "_blank" do %>
+        <%= image_tag @project.cover, alt: @project.description, class: "project-image" %>
+      <% end %>
     </div>
     <div class="col-sm-6">
       <h2><strong><%= @project.title %></strong></h2>      

@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :projects do
     post :like, on: :member
     get :favorite, on: :collection
+    get :search, on: :collection
   end
 
 end

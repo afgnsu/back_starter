@@ -1,15 +1,25 @@
 class ProjectsController < ApplicationController
   before_action :find_project, only: [:show, :edit, :update, :destroy, :like]
   before_action :authenticate_user!, except: [:show]
-  before_action :admin_user?, except: [:show]
+  before_action :admin_user?, except: [:show, :favorite, :like, :search]
   
   def new
     @project = Project.new
     @categories = Category.all
   end
   
-  def favorite
+  def favorite 
     @projects = current_user.projects
+  end
+  
+  def search
+    if params[:search_content].blank?
+      params[:search_content] = ""
+    end
+    
+    @search_content = params[:search_content]
+    @projects = Project.search(params[:search_content]).order('updated_at DESC')  
+    
   end
 
   def create

@@ -9,6 +9,10 @@ class Project < ActiveRecord::Base
   has_many :user_project_relationships
   has_many :users, through: :user_project_relationships
   
+  def self.search(input)
+    where( "title LIKE ? or description LIKE ?", "%#{input}%", "%#{input}%")
+  end  
+  
   def add_project_information
     
     begin
