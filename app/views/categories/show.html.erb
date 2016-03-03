@@ -6,7 +6,7 @@
     <h4 class="text-center">Sorry! Please take a look at other category!</h4>
   <% else %>
     <div id="projects" class="transitions-enabled">
-      <% @category.projects.each do |project| %>
+      <% @projects.each do |project| %>
       <div class="box panel panel-default">
         <%= link_to project, class: "project-link" do %> 
         <div class="panel-heading project_image darken">
@@ -24,7 +24,7 @@
         <div class="panel-footer">
           <div class="row">
             <div class="col-md-8 col-sm-8">
-              <h5>Liked <%= time_ago_in_words(project.updated_at) %> ago</h5>
+              <h5>Added <%= time_ago_in_words(project.created_at) %> ago</h5>
             </div>
             <div class="col-md-4 col-sm-4">
               <div class="btn-group pull-right">
