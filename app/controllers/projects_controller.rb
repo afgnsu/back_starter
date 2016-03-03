@@ -6,8 +6,13 @@ class ProjectsController < ApplicationController
   
   def create
     @project = Project.new(link_params)
-    @project.add_project_information
-    @project.save
+    result = @project.add_project_information
+    if result
+      @project.save
+      @message = "Successfully added"
+    else
+      @message = "Invalid URL" 
+    end
 
     respond_to do |format|
       format.js
