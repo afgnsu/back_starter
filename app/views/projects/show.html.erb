@@ -28,7 +28,7 @@
   <br>
   <div>
     <%= link_to "#commentModal", class: "btn btn-default", :"data-toggle" => "modal" do %>
-      <h4 class="text-center">Leave Comments</h4>
+      <h4 class="text-center">Comments</h4>
     <% end %>     
   </div>
 </div>
@@ -57,12 +57,16 @@
         </ul>    
         </div>
         <div class="modal-footer">
-          <%= form_for [@project, @comment], remote: true do |f| %>
-            <div class="form-group">
-              <%= f.text_area :content, class: "form-control", rows: 5 %>
-            </div>
-              <%= f.submit %>
-          <% end %>
+          <% if user_signed_in? %>
+            <%= form_for [@project, @comment], remote: true do |f| %>
+              <div class="form-group">
+                <%= f.text_area :content, class: "form-control", rows: 5 %>
+              </div>
+                <%= f.submit %>
+            <% end %>
+          <% else %>
+            <%= link_to "Sign in to leave comments", new_user_session_path, class: "btn btn-default" %>
+          <% end %>  
         </div>
       </div>
       

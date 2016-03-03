@@ -6,7 +6,7 @@ class Project < ActiveRecord::Base
   validates :url, presence: true
 
   belongs_to :category, counter_cache: true
-  has_many :comments
+  has_many :comments, dependent: :destroy
   has_many :user_project_relationships
   has_many :users, through: :user_project_relationships
   
