@@ -14,7 +14,7 @@ class ProjectsController < ApplicationController
   
   def search
     if params[:search_content].blank?
-      params[:search_content] = ""
+      @projects = [] and return
     end
     
     @search_content = params[:search_content]
